@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -32,6 +33,7 @@
                 <thead>
                     <tr>
                         <th>SN</th>
+                        <th>PO Number</th>
                         <th>PO Material</th>
                         <th>PO Date (Click to sort)</th>
                     </tr>
@@ -80,7 +82,8 @@
             if (allpo[q]) {
                 showResults.innerHTML += `<tr>
                                             <td>1</td>
-                                            <td><a href="${allpo[q][2]}" target="_blank">${allpo[q][0]}</a></td>
+                                            <td><a href="${allpo[q][2]}" target="_blank">${q}</a></td>
+                                            <td>${allpo[q][0]}</td>
                                             <td>${allpo[q][1]}</td>
                                         </tr>`
             }
@@ -92,7 +95,8 @@
                     for (let i = 0; i < results.length; i++) {
                         showResults.innerHTML += `<tr>
                                             <td>${i + 1}</td>
-                                            <td><a href="${allpo[results[i]][2]}" target="_blank">${allpo[results[i]][0]}</a></td>
+                                            <td><a href="${allpo[results[i]][2]}" target="_blank">${results[i]}</a></td>
+                                            <td>${allpo[results[i]][0]}</td>
                                             <td>${allpo[results[i]][1]}</td>
                                         </tr>`
                     }
@@ -104,10 +108,10 @@
                         "pageLength": 25
                     });
                 } else {
-                    showResults.innerHTML += "<tr><td colspan='3' class='text-danger'>No results found</td></tr>"
+                    showResults.innerHTML += "<tr><td colspan='4' class='text-danger'>No results found</td></tr>"
                 }
             } else {
-                showResults.innerHTML += '<tr><td colspan="3" class="text-danger">Search term should be greater than or equal to 3 characters</td></tr>'
+                showResults.innerHTML += '<tr><td colspan="4" class="text-danger">Search term should be greater than or equal to 3 characters</td></tr>'
             }
             document.getElementById('searchResults').innerText = "Search results for " + q
             document.getElementById('searchForm').style.display = 'none'
